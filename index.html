@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        :root {
+        --font-family: "poppins", sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      html {
+        font-size: 62.5%;  /*  62.5% * 16px = 10px */
+      }
+      body {
+        font-family: var(--font-family);
+        font-size: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-block: 4rem;
+        gap: 2.5rem
+      }
+      input {
+        font-size: 2.5rem;
+        text-align: center;
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+        border: 2px solid #c2daed;
+        box-shadow: 2px 2px 2px rgb(195, 192, 192);
+      }
+      input:focus {
+      border-color: #4dabf7;
+      outline: none;
+      }
+
+      button {
+        font-size: 2.5rem;
+        padding: 1rem 1.2rem;
+        border-radius: 1rem;
+        color: white;
+        background: #4dabf7;
+        border: 2px solid #4dabf7;
+        box-shadow: 1px 2px 2px 2px gray;
+      }
+
+      #weather-box {
+        margin-top: 2rem;
+        padding: 5rem 3.2rem;
+        border-radius: 1rem;
+        box-shadow: 1px 2px 2px 2px gray;
+        text-align: center;
+        background: #e7f5ff;
+        
+      }
+     
+    </style>
+</head>
+<body>
+        <input type="text" id="city-input" placeholder="Enter city name"/>
+        <button onclick="checkWeather()">Check Weather</button>
+        <div id="weather-box" style="display: none"></div>
+
+        <script>
+            function checkWeather() {
+                const cityInput = document.getElementById("city-input").value;
+                const weatherBox = document.getElementById("weather-box");
+                if(cityInput) {
+                    weatherBox.textContent  = `Weather in ${cityInput} : Sunny, 25°C`;
+                    weatherBox.style.display = "block";
+                } else {
+                    alert('Please enter a city name');
+                }  
+            }
+        </script>
+</body>
+</html>
